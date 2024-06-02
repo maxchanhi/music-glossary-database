@@ -52,17 +52,14 @@ def load_embeddings(query):
 def natural_search_main():
     if "dicanswer" not in st.session_state:
         st.session_state.dicanswer = ""
+    if "dic_login" not in st.session_state:
+        st.session_state.dic_login = False
+    if not st.session_state.dic_login:
+        pw=st.text_input("Enter the password to enable AI chat:")
+        if st.button("Login") and pw in st.secrets["app_password"]:
+            st.session_state.dic_login = True
 
-    col1,col2=st.columns([4,1])
-    with col2:
-        with st.popover("Embeddings"):
-            pw=st.text_input("Enter the password:")
-            if st.button("Save Embeddings") and pw in st.secrets["app_password"]:
-                with st.spinner("Saving embeddings..."):
-                    save_embeddings()
-                st.success("Embeddings saved successfully!")
-
-    with col1:
+    if st.session_state.dic_login:
         with st.expander("Ask a question"):
             user_input = st.text_input("Your question:", "")
             if st.button("Get Answer"):

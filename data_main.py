@@ -1,13 +1,9 @@
 import streamlit as st
 import pymongo
-from dotenv import load_dotenv
-import os
 from st_keyup import st_keyup
 from natural_lang_search import natural_search_main
 
-# Load config from a .env file
-load_dotenv()
-MONGODB_URI = os.environ.get('MONGODB_URI')
+MONGODB_URI = st.secrets['MONGODB_URI']
 
 # Check if MONGODB_URI is provided
 if not MONGODB_URI:

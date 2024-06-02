@@ -1,0 +1,122 @@
+Grade,Language,Meaning,Similar French,Similar Italian,Tag,Term
+1,Italian,very quiet,,,dynamic,pianissimo (pp)
+1,Italian,quiet,,,dynamic,piano (p)
+1,Italian,moderately quiet,,,dynamic,mezzo piano (mp)
+1,Italian,moderately loud,,,dynamic,mezzo forte (mf)
+1,Italian,loud,,,dynamic,forte (f)
+1,Italian,very loud ('-issimo' means 'very'),,,dynamic,fortissimo (ff)
+1,Italian,gradually getting louder,,,dynamic,crescendo (cresc.)
+1,Italian,gradually getting quieter,,,dynamic,diminuendo (dim.)
+1,Italian,gradually getting quieter,,,dynamic,decrescendo (decresc.)
+1,Italian,slow,,,tempo,adagio
+1,Italian,quick,,,tempo,allegro
+1,Italian,fairly quick,,,tempo,allegretto
+1,Italian,at a moderate speed,,,tempo,moderato
+1,Italian,at a medium speed,,,tempo,andante
+1,Italian,gradually getting quicker,,,tempo,accelerando (accel.)
+1,Italian,gradually getting slower,,,tempo,rallentando (rall.)
+1,Italian,gradually getting slower,,,tempo,ritardando (ritard or rit.)
+1,Italian,in time (resume the original speed),,,tempo,a tempo
+1,Italian,in a singing style,,,expression,cantabile
+1,Italian,repeat from the beginning,,,form,da capo (D.C.)
+1,Italian,sweet,,,expression,dolce
+1,Italian,smoothly,,,articulation,legato
+1,Italian,detached,,,articulation,staccato (stacc.)
+1,Italian,the end (d.C. al fine = up to the end),,,form,fine
+2,Italian,"loud, then immediately quiet",,,dynamic,fortepiano (fp)
+2,Italian,fast (quicker than allegro),,,tempo,presto
+2,Italian,"lively, quick",,,tempo,"vivace, vivo"
+2,Italian,slow (slower than adagio),,,tempo,lento
+2,Italian,"slow (very slow, the same as, or slower than lento)",,,tempo,largo
+2,Italian,"very slow, solemn",,,tempo,grave
+2,Italian,"movement, quicker",,,tempo,"mosso, moto"
+2,Italian,"less movement, slower",,,tempo,meno mosso
+2,Italian,held back,,,tempo,ritenuto (riten. or rit.)
+2,Italian,broadening,,,tempo,allargando
+2,Italian,repeat from the sign (𝄋),,,form,dal segno (D.S.)
+2,Italian,expressive,,,expression,espressivo (espress.)
+2,Italian,energetic,,,expression,energico
+2,Italian,marked,,,expression,marcato
+2,Italian,in the style of a march,,,expression,marcia
+2,Italian,"very, much",,,general,molto
+2,Italian,not too much,,,general,non troppo
+2,Italian,"a little, little by little",,,general,"poco, poco a poco"
+2,Italian,with,,,general,"col, con"
+2,Italian,and,,,general,"e, ed"
+2,Italian,but,,,general,ma
+2,Italian,less,,,general,meno
+2,Italian,more,,,general,piu
+2,Italian,without,,,general,senza
+3,Italian,"forced, accented",,,dynamics,"sforzando, sforzato (sf, sfz)"
+3,Italian,slightly faster than andante (but may also mean slightly slower),,,tempo,andantino
+3,Italian,very fast,,,tempo,prestissimo
+3,Italian,agitated,,,expression,agitato
+3,Italian,"animated, lively",,,expression,animato
+3,Italian,with force,,,expression,con forza
+3,Italian,energetic,,,expression,energico
+3,Italian,"playful, merry",,,expression,giocoso
+3,Italian,light,,,expression,leggero
+3,Italian,majestic,,,expression,maestoso
+3,Italian,"emphatic, accented",,,expression,marcato (marc.)
+3,Italian,heavy,,,expression,pesante
+3,Italian,"bold, strong",,,expression,risoluto
+3,Italian,"playful, joking",,,expression,scherzando
+3,Italian,"simple, plain",,,expression,semplice
+3,Italian,sustained,,,expression,sostenuto (sost.)
+3,Italian,calm,,,expression,tranquillo
+3,Italian,"sad, sorrowful",,,expression,"triste, tristamente"
+3,Italian,well,,,general,ben
+3,Italian,first,,,general,"prima, primo"
+3,Italian,always,,,general,sempre
+3,Italian,in the same way,,,general,simile
+3,Italian,suddenly,,,general,subito (sub.)
+4,Italian,at a comfortable speed,,,tempo,comodo/tempo comodo
+4,Italian,"with vigour, lively",,,tempo,con brio
+4,Italian,rather slow,,,tempo,larghetto
+4,Italian,with some freedom of time,,,tempo,rubato/tempo rubato
+4,Italian,gradually getting faster,,,tempo,stringendo
+4,Italian,tenderly,,,expression,affettuoso
+4,Italian,pleasant (like the word 'amiable'),,,expression,amabile
+4,Italian,with passion,,,expression,appassionato
+4,Italian,with determination,,,expression,deciso
+4,Italian,sad,,,expression,mesto
+4,Italian,mysterious,,,expression,misterioso
+4,Italian,rhythmically,,,general,ritmico
+4,Italian,with a minim beat,,,general,alla breve
+4,Italian,"very (e.g., allegro assai: very quick)",,,general,assai
+4,Italian,as before,,,general,come prima
+4,Italian,at choice,,,expression,a piacere
+4,Italian,"animated, lively",,,tempo,animato
+4,Italian,dying away,,,dynamics,calando
+4,Italian,with spirit,,,expression,con spirito
+4,Italian,sweet,,,expression,dolce
+4,French,slow,,,tempo,lent
+4,Italian,freely,,,tempo,liberamente
+4,Italian,dying away,,,dynamics,morendo
+4,Italian,held back,,,tempo,ritenuto
+4,French,"animated, lively",,,tempo,animé
+4,French,slow,,,tempo,lent
+4,French,at a moderate speed,,,tempo,modéré
+4,French,held back,,,tempo,retenu
+4,French,quick,,,tempo,vite
+5,Italian,to nothing,,,dynamics,a niente
+5,Italian,dying away,,,dynamics,morendo
+5,Italian,dying away,,,dynamics,perdendosi
+5,Italian,reinforcing,,,dynamics,"rinforzando (rinf., rf, rfz)"
+5,Italian,dying away,,,dynamics,smorzando (smorz.)
+5,Italian,in an undertone (literally 'under the voice'),,,expression,sotto voce
+5,Italian,broadly,,,tempo,largamente
+5,Italian,singing,,,expression,cantando
+5,Italian,with grief,,,expression,con dolore
+5,Italian,with spirit,,,expression,con spirito
+5,Italian,sorrowful,,,expression,doloroso
+5,Italian,resonant, with rich tone (like the word 'sonorous'),,,expression,sonoro
+5,Italian,at choice,,,general,ad libitum (ad lib.)
+5,Italian,go straight on (to the next part of the music),,,general,attacca
+5,Italian,as if, resembling,,,general,quasi
+5,German,slow,lent,adagio/lento,tempo,langsam
+5,German,lively,vif,vivace,tempo,lebhaft
+5,German,at a moderate speed,modéré,moderato,tempo,mässig
+5,German,peaceful,,tranquillo,expression,ruhig
+5,German,fast,vite,allegro/presto,tempo,schnell
+5,German,sad,,mesto,expression,traurig

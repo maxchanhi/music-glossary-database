@@ -2,7 +2,7 @@ import streamlit as st
 import pymongo
 from st_keyup import st_keyup
 from natural_lang_search import natural_search_main
-
+st.set_page_config("Music Dictionary")
 MONGODB_URI = st.secrets['MONGODB_URI']
 
 # Check if MONGODB_URI is provided
@@ -35,7 +35,7 @@ if "search_term" not in st.session_state:
     db = client['music_terms']
     collection = db['terms']
 natural_search_main()
-st.title("Music Terms Dictionary")
+st.title("Music Dictionary")
 
 search_word = st_keyup("Search a non-English term", key="2", debounce=500)
 

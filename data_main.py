@@ -8,7 +8,7 @@ st.set_page_config("Music Dictionary")
 
 @st.cache_resource
 def init_connection(): 
-    return pymongo.MongoClient(st.secrets["connection_string"])
+    return pymongo.MongoClient(st.secrets["MONGODB_URI"])
 
 client = init_connection()
 @st.cache_data(ttl=600)

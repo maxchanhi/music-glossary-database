@@ -2,3 +2,4 @@ pymongo
 streamlit-keyup
 langchain-community
 langchain
+langchain_mistralai

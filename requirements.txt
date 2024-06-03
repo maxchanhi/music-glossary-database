@@ -1,0 +1,4 @@
+pymongo
+streamlit-keyup
+langchain-community
+langchain

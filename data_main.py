@@ -15,7 +15,8 @@ if not MONGODB_URI:
 # Uses st.cache_resource to only run once.
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient(MONGODB_URI)
+    connection_string = st.secrets["mongo"]["connection_string"]
+    return pymongo.MongoClient(connection_string)
 
 client = init_connection()
 @st.cache_data(ttl=600)

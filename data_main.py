@@ -7,9 +7,8 @@ from basic_operations import check_connection
 st.set_page_config("Music Dictionary")
 
 @st.cache_resource
-def init_connection():
-    connection_string = st.secrets["connection_string"]
-    return pymongo.MongoClient(connection_string)
+def init_connection(): 
+    return pymongo.MongoClient(st.secrets["connection_string"])
 
 client = init_connection()
 @st.cache_data(ttl=600)

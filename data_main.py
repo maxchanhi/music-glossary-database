@@ -5,17 +5,10 @@ from natural_lang_search import natural_search_main
 from basic_operations import check_connection
 
 st.set_page_config("Music Dictionary")
-MONGODB_URI = st.secrets['MONGODB_URI']
 
-# Check if MONGODB_URI is provided
-if not MONGODB_URI:
-    raise ValueError("No MONGODB_URI found in environment variables. Please check your .env file.")
-#check_connection()
-# Initialize connection.
-# Uses st.cache_resource to only run once.
 @st.cache_resource
 def init_connection():
-    connection_string = st.secrets["mongo"]["connection_string"]
+    connection_string = st.secrets["connection_string"]
     return pymongo.MongoClient(connection_string)
 
 client = init_connection()

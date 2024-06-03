@@ -5,12 +5,11 @@ def check_connection():
     uri = st.secrets["MONGODB_URI"]
     
     # Create a client with SSL enabled
-    client = MongoClient(uri, ssl=True, ssl_cert_reqs='CERT_NONE')
-    
+    client = MongoClient(uri, server_api=ServerApi('1'))
+
+# Send a ping to confirm a successful connection
     try:
-        # Attempt to connect to the server
-        db = client.test
-        print("Connected to MongoDB!")
-    except pymongo.errors.ServerSelectionTimeoutError as err:
-        # Handle connection errors
-        print("Failed to connect to MongoDB:", err)
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+    except Exception as e:
+        print(e)

@@ -1,4 +1,5 @@
 pymongo
+pymongo[srv]
 streamlit-keyup
 langchain-community
 langchain

@@ -1,6 +1,6 @@
 import pymongo
 from pymongo import MongoClient
-
+import streamlit as st
 def check_connection():
     uri = st.secrets["MONGODB_URI"]
     

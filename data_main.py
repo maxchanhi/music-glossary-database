@@ -10,12 +10,12 @@ MONGODB_URI = st.secrets['MONGODB_URI']
 # Check if MONGODB_URI is provided
 if not MONGODB_URI:
     raise ValueError("No MONGODB_URI found in environment variables. Please check your .env file.")
-check_connection()
+#check_connection()
 # Initialize connection.
 # Uses st.cache_resource to only run once.
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient(MONGODB_URI)
+    return pymongo.MongoClient(**st.secrets["mongo"])
 
 client = init_connection()
 @st.cache_data(ttl=600)

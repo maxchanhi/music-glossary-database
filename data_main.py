@@ -6,7 +6,7 @@ from natural_lang_search import natural_search_main
 st.set_page_config("Music Dictionary")
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient(f"mongodb+srv://<username>:{st.secrets['MONGODB_PASSWORD']}@<host>/?retryWrites=true&w=majority&appName=<AppName>")
+    return pymongo.MongoClient(f"mongodb+srv://max49363d93:{st.secrets['MONGODB_PASSWORD']}@<host>/?retryWrites=true&w=majority&appName=Music-terms")
 
 client = init_connection()
 @st.cache_data(ttl=600)

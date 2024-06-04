@@ -1,4 +1,4 @@
-pymongo
+pymongo==4.7.2
 pymongo[srv]
 streamlit-keyup
 langchain-community

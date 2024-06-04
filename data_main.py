@@ -9,7 +9,7 @@ st.set_page_config("Music Dictionary")
 def init_connection():
     return pymongo.MongoClient(f"mongodb://max49363d93:{st.secrets['MONGODB_PASSWORD']}@<host>/?retryWrites=true&w=majority&appName=Music-terms")
 
-client = pymongo.MongoClient(f"mongodb://max49363d93:{st.secrets['MONGODB_PASSWORD']}@<host>/?retryWrites=true&w=majority&appName=Music-terms")
+client = pymongo.MongoClient(f"mongodb://max49363d93:{st.secrets['MONGODB_PASSWORD']}@<host>/?retryWrites=true&w=majority")
 @st.cache_data(ttl=600)
 def get_term_data(search):
     db = client['music_terms']

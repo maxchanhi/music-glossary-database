@@ -7,10 +7,11 @@ from st_mongo_connection import MongoDBConnection
 
 
 st.set_page_config("Music Dictionary")
-
-@st.cache_resource
-def init_connection(): 
-    return st.connection("mongodb", type=MongoDBConnection)
+connection = st.connection("mongodb", type=MongoDBConnection)
+st.help(connection)
+#@st.cache_resource
+#def init_connection(): 
+   # return st.connection("mongodb", type=MongoDBConnection)
 
 client = init_connection()
 @st.cache_data(ttl=600)

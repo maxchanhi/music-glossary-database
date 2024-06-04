@@ -2,16 +2,11 @@ import streamlit as st
 import pymongo
 from st_keyup import st_keyup
 from natural_lang_search import natural_search_main
-from basic_operations import check_connection
-from st_mongo_connection import MongoDBConnection
-
 
 st.set_page_config("Music Dictionary")
-connection = st.connection("mongodb", type=MongoDBConnection)
-st.help(connection)
-#@st.cache_resource
-#def init_connection(): 
-   # return st.connection("mongodb", type=MongoDBConnection)
+@st.cache_resource
+def init_connection():
+    return pymongo.MongoClient(**st.secrets["mongo"])
 
 client = init_connection()
 @st.cache_data(ttl=600)

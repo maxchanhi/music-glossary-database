@@ -5,7 +5,6 @@ from natural_lang_search import natural_search_main
 
 st.set_page_config("Music Dictionary")
 import pymongo
-
 # Initialize connection.
 # Uses st.cache_resource to only run once.
 @st.cache_resource
@@ -13,6 +12,8 @@ def init_connection():
     return pymongo.MongoClient(**st.secrets["mongo"])
 
 client = init_connection()
+db = client['music_terms']
+collection = db['terms']
 
 def get_term_data(search=""):
     if search:

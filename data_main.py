@@ -14,20 +14,23 @@ def init_connection():
 
 client = init_connection()
 
-    
 def get_term_data(search=""):
-    db = client['music_terms']
-    collection = db['terms']
     if search:
-        # Fetch terms that start with the search term
-        items = collection.find({"Term": {"$regex": f"^{search.lower()}"}})
-        meaning = collection.find({"Meaning": {"$regex": f"^{search.lower()}"}})
-        simple_type = collection.find({"Type": {"$regex": f"^{search.lower()}"}})
-        result=list(items)+list(meaning)+list(simple_type)
-        return result
-    else:
-        st.write(collection)
+        try:
+            query = {
+                "$or": [
+                    {"Term": {"$regex": f"^{search.lower()}", "$options": "i"}},
+                    {"Meaning": {"$regex": f"^{search.lower()}", "$options": "i"}},
+                    {"Type": {"$regex": f"^{search.lower()}", "$options": "i"}}
+                ]
+            }
+            result = list(collection.find(query))
+            return result
+        except Exception as e:
+            st.error(f"Error fetching data: {e}")
+            return []
     return []
+    
 if st.button("Get connected"):
     get_term_data()
 # Initialize session state variables

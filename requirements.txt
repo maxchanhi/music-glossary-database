@@ -1,5 +1,4 @@
-pymongo==4.7.3
-pymongo[srv]
+st-gsheets-connection
 streamlit-keyup
 langchain-community
 langchain

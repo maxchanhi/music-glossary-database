@@ -7,9 +7,9 @@ from pymongo.server_api import ServerApi
 st.set_page_config("Music Dictionary")
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient(f"mongodb://max49363d93:{st.secrets['MONGODB_PASSWORD']}@<host>/?retryWrites=true&w=majority&appName=Music-terms")
+    return pymongo.MongoClient(**st.secrets["mongo"])
 
-client = pymongo.MongoClient(f"mongodb://max49363d93:{st.secrets['MONGODB_PASSWORD']}@<host>/?retryWrites=true&w=majority")
+client = init_connection()
 @st.cache_data(ttl=600)
 def get_term_data(search):
     db = client['music_terms']

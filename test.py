@@ -46,7 +46,7 @@ if st.session_state.search_term is not None:
     if len(st.session_state.search_term) == 1:
         term = st.session_state.search_term.iloc[0]
         search_count = term.get('Search Count', 0) + 1
-        df = conn.read(worksheet="sheet1")
+        df = conn.read(spreadsheet="streamdata_test",worksheet="sheet1")
         df.loc[df['Term'] == term['Term'], 'Search Count'] = search_count
         conn = GSheetsConnection()  # Re-authenticate the connection
         conn.write(df)

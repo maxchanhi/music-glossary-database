@@ -2,45 +2,34 @@ import streamlit as st
 import pymongo
 from st_keyup import st_keyup
 from natural_lang_search import natural_search_main
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
-st.set_page_config("Music Dictionary")
-import pymongo
-# Initialize connection.
-# Uses st.cache_resource to only run once.
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient(**st.secrets["mongo"])
+    return MongoClient(st.secrets["uri"], server_api=ServerApi('1'))
 
 client = init_connection()
-db = client['music_terms']
-collection = db['terms']
-
-def get_term_data(search=""):
+@st.cache_data(ttl=600)
+def get_term_data(search):
+    db = client['music_terms']
+    collection = db['terms']
     if search:
-        try:
-            query = {
-                "$or": [
-                    {"Term": {"$regex": f"^{search.lower()}", "$options": "i"}},
-                    {"Meaning": {"$regex": f"^{search.lower()}", "$options": "i"}},
-                    {"Type": {"$regex": f"^{search.lower()}", "$options": "i"}}
-                ]
-            }
-            result = list(collection.find(query))
-            return result
-        except Exception as e:
-            st.error(f"Error fetching data: {e}")
-            return []
+        # Fetch terms that start with the search term
+        items = collection.find({"Term": {"$regex": f"^{search.lower()}"}})
+        meaning = collection.find({"Meaning": {"$regex": f"^{search.lower()}"}})
+        simple_type = collection.find({"Type": {"$regex": f"^{search.lower()}"}})
+        result=list(items)+list(meaning)+list(simple_type)
+        return result
     return []
-    
-if st.button("Get connected"):
-    get_term_data()
+
 # Initialize session state variables
 if "search_term" not in st.session_state:
     st.session_state.search_term = ""
     db = client['music_terms']
     collection = db['terms']
-#natural_search_main()
-st.title("Music Dictionary")
+natural_search_main()
+st.title("Music Terms Dictionary")
 
 search_word = st_keyup("Search a non-English term", key="2", debounce=500)
 
@@ -73,5 +62,3 @@ if st.session_state.search_term:
 
 elif not st.session_state.search_term:
     st.write("No results found.")
-
-

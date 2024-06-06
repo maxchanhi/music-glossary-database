@@ -46,6 +46,7 @@ if st.session_state.search_term is not None:
         search_count = term.get('Search Count', 0) + 1
         df = conn.read()
         df.loc[df['Term'] == term['Term'], 'Search Count'] = search_count
+        conn = GSheetsConnection()  # Re-authenticate the connection
         conn.write(df)
         st.write(f"This term has been searched {search_count} times.")
 

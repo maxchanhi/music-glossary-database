@@ -1,4 +1,4 @@
-import panda as pd
+import pandas as pd
 import streamlit as st
 import requests
 from streamlit_gsheets import GSheetsConnection

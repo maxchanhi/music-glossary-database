@@ -1,5 +1,6 @@
 import panda as pd
 import streamlit as st
+import requests
 from streamlit_gsheets import GSheetsConnection
 from st_keyup import st_keyup
 

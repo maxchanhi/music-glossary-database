@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 from streamlit_gsheets import GSheetsConnection
 from st_keyup import st_keyup
-conn = GSheetsConnection()
+conn = GSheetsConnection(connection_name="my_gsheets_connection")
 @st.cache_data(ttl=600)
 def get_term_data(search):
     conn = st.connection("gsheets", type=GSheetsConnection)

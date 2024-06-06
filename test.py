@@ -3,7 +3,8 @@ import streamlit as st
 import requests
 from streamlit_gsheets import GSheetsConnection
 from st_keyup import st_keyup
-conn = GSheetsConnection(connection_name="my_gsheets_connection")
+spreadsheet_id = "https://docs.google.com/spreadsheets/d/1mIPxB3y2aEgp1tfp8-1pDqASj8F4iagtioOAwMuHsAs/edit#gid=0"  # Replace with your spreadsheet ID or URL
+conn = GSheetsConnection(connection_name="my_gsheets_connection", spreadsheet_id=spreadsheet_id)
 @st.cache_data(ttl=600)
 def get_term_data(search):
     conn = st.connection("gsheets", type=GSheetsConnection)

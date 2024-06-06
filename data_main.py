@@ -15,7 +15,6 @@ def init_connection():
 client = init_connection()
 
     
-@st.cache_data(ttl=600)
 def get_term_data(search=""):
     db = client['music_terms']
     collection = db['terms']

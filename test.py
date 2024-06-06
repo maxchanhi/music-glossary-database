@@ -8,9 +8,9 @@ def get_term_data(search):
     df = conn.read()
     if search:
         # Fetch terms that start with the search term
-        items = df[df['Term'].str.lower().str.startswith(search.lower())]
-        meanings = df[df['Meaning'].str.lower().str.startswith(search.lower())]
-        simple_types = df[df['Type'].str.lower().str.startswith(search.lower())] if 'Type' in df.columns else None
+        items = df[df['Term'].str.lower().fillna('').str.startswith(search.lower())]
+        meanings = df[df['Meaning'].str.lower().fillna('').str.startswith(search.lower())]
+        simple_types = df[df['Type'].str.lower().fillna('').str.startswith(search.lower())] if 'Type' in df.columns else None
         result = pd.concat([items, meanings, simple_types]).drop_duplicates() if simple_types is not None else pd.concat([items, meanings]).drop_duplicates()
         return result
     return None

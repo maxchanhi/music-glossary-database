@@ -7,7 +7,8 @@ conn = GSheetsConnection(connection_name="my_gsheets_connection")
 @st.cache_data(ttl=600)
 def get_term_data(search):
     conn = st.connection("gsheets", type=GSheetsConnection)
-    df = conn.read()
+    df = conn.read(worksheet="sheet1",
+    ttl="10m",)
     if search:
         # Fetch terms that start with the search term
         items = df[df['Term'].str.lower().fillna('').str.startswith(search.lower())]

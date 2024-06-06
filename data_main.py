@@ -28,7 +28,7 @@ if "search_term" not in st.session_state:
     st.session_state.search_term = ""
     db = client['music_terms']
     collection = db['terms']
-natural_search_main()
+#natural_search_main()
 st.title("Music Dictionary")
 
 search_word = st_keyup("Search a non-English term", key="2", debounce=500)

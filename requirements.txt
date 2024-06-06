@@ -3,5 +3,5 @@ streamlit-keyup
 langchain-community
 langchain
 langchain_mistralai
-panda
+pandas
 requests

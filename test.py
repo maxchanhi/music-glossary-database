@@ -44,7 +44,6 @@ if st.session_state.search_term is not None:
     if len(st.session_state.search_term) == 1:
         term = st.session_state.search_term.iloc[0]
         search_count = term.get('Search Count', 0) + 1
-        conn = st.connection("gsheets", type=GSheetsConnection)
         df = conn.read()
         df.loc[df['Term'] == term['Term'], 'Search Count'] = search_count
         conn.write(df)

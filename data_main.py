@@ -13,8 +13,10 @@ def init_connection():
     return pymongo.MongoClient(**st.secrets["mongo"])
 
 client = init_connection()
+
+    
 @st.cache_data(ttl=600)
-def get_term_data(search):
+def get_term_data(search=""):
     db = client['music_terms']
     collection = db['terms']
     if search:
@@ -24,8 +26,11 @@ def get_term_data(search):
         simple_type = collection.find({"Type": {"$regex": f"^{search.lower()}"}})
         result=list(items)+list(meaning)+list(simple_type)
         return result
+    else:
+        st.write(collection)
     return []
-
+if st.button("Get connected"):
+    get_term_data()
 # Initialize session state variables
 if "search_term" not in st.session_state:
     st.session_state.search_term = ""

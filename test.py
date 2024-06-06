@@ -1,14 +1,52 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
+from st_keyup import st_keyup
 
-# Create a connection object.
-conn = st.connection("gsheets", type=GSheetsConnection)
+@st.cache_data(ttl=600)
+def get_term_data(search):
+    conn = st.connection("gsheets", type=GSheetsConnection)
+    df = conn.read()
+    if search:
+        # Fetch terms that start with the search term
+        items = df[df['Term'].str.lower().str.startswith(search.lower())]
+        meanings = df[df['Meaning'].str.lower().str.startswith(search.lower())]
+        simple_types = df[df['Type'].str.lower().str.startswith(search.lower())] if 'Type' in df.columns else None
+        result = pd.concat([items, meanings, simple_types]).drop_duplicates() if simple_types is not None else pd.concat([items, meanings]).drop_duplicates()
+        return result
+    return None
 
-df = conn.read(
-    ttl="10m",
-    usecols=[0, 1],
-    nrows=3,
-)
-# Print results.
-for row in df.itertuples():
-    st.write(f"{row.name} has a :{row.pet}:")
+# Initialize session state variables
+if "search_term" not in st.session_state:
+    st.session_state.search_term = None
+
+st.title("Music Terms Dictionary")
+
+search_word = st_keyup("Search a non-English term", key="2", debounce=500)
+
+if search_word:
+    st.session_state.search_term = get_term_data(search_word)
+
+if st.session_state.search_term is not None:
+    for _, item in st.session_state.search_term.iterrows():
+        st.write(f"**Term:** {item['Term']}")
+        st.write(f"**Meaning:** {item['Meaning']}")
+        st.write(f"**Tag:** {item['Tag']}")
+        st.write(f"**Grade:** {item['Grade']}")
+        st.write(f"**Language:** {item['Language']}")
+        if 'Similar Italian' in item:
+            st.write(f"**Similar Italian:** {item['Similar Italian']}")
+        if 'Similar French' in item:
+            st.write(f"**Similar French:** {item['Similar French']}")
+        if len(st.session_state.search_term) > 1:
+            st.write("---")
+    if len(st.session_state.search_term) == 1:
+        term = st.session_state.search_term.iloc[0]
+        search_count = term.get('Search Count', 0) + 1
+        conn = st.connection("gsheets", type=GSheetsConnection)
+        df = conn.read()
+        df.loc[df['Term'] == term['Term'], 'Search Count'] = search_count
+        conn.write(df)
+        st.write(f"This term has been searched {search_count} times.")
+
+elif st.session_state.search_term is None:
+    st.write("No results found.")

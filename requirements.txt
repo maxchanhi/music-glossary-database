@@ -4,3 +4,4 @@ langchain-community
 langchain
 langchain_mistralai
 st_mongo_connection
+panda

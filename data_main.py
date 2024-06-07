@@ -4,7 +4,7 @@ from st_keyup import st_keyup
 from natural_lang_search import natural_search_main
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-
+st.set_page_config("Music Dictionary")
 @st.cache_resource
 def init_connection():
     return MongoClient(st.secrets["uri"], server_api=ServerApi('1'))

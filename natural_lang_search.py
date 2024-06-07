@@ -61,7 +61,7 @@ def natural_search_main():
             st.session_state.dic_login = True
 
     if st.session_state.dic_login:
-        with st.expander("Ask a question"):
+        with st.expander("Ask a question",expanded=True):
             user_input = st.text_input("Your question:", "")
             if st.button("Get Answer"):
                 if user_input:

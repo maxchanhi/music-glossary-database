@@ -4,6 +4,7 @@ from st_keyup import st_keyup
 from natural_lang_search import natural_search_main
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from dictionary_quiz import term_quiz
 st.set_page_config("Music Dictionary")
 @st.cache_resource
 def init_connection():
@@ -62,3 +63,9 @@ if st.session_state.search_term:
 
 elif not st.session_state.search_term:
     st.write("No results found.")
+
+with st.expander("Random quick quiz!"):
+    term_quiz()
+    
+
+

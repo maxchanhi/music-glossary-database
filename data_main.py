@@ -5,7 +5,7 @@ from natural_lang_search import natural_search_main,youtube_search
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from dictionary_quiz import term_quiz
-st.set_page_config("Music Dictionary")
+st.set_page_config("Music Dictionary",page_icon="📚")
 @st.cache_resource
 def init_connection():
     return MongoClient(st.secrets["uri"], server_api=ServerApi('1'))

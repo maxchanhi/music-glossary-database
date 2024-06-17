@@ -1,13 +1,13 @@
 import streamlit as st 
 import random
-from question import get_question,grades
+from question import hash_get_question,grades
 
 def check_answer():
     st.session_state['check_ans'] = True
 
 def apply_new_question(*args):
     select_grades = list(args)
-    pick_ques,meaning,option_list=get_question(select_grades)
+    pick_ques,meaning,option_list=hash_get_question(select_grades)
     st.session_state['question_list'] = option_list
     st.session_state['question']=pick_ques
     st.session_state['answer']=meaning

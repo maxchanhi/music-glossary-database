@@ -4,6 +4,7 @@ grades= ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"]
 def get_question(grade_list):
     picked_grade = random.choice(grade_list)
     grade_int = picked_grade[-1]
+    print(grade_int)
     list_of_questions = []
     for item in data:
         if item["Grade"] == grade_int:
@@ -26,4 +27,3 @@ def get_question(grade_list):
     random.shuffle(option_list)
     return pick_ques,meaning,option_list
 
-print(get_question(grades))

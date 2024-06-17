@@ -73,3 +73,15 @@ def natural_search_main():
             st.markdown("""
 **Disclaimer:** The AI-generated answers may not always be accurate. For precise information, please refer to the dictionary below or consult your teacher.
 """)
+from pytube import Search
+def youtube_search(query):
+    search_query = query + " music piece"
+    search_results = Search(search_query).results
+
+    if len(search_results) > 0:
+        video = search_results[0]
+        st.subheader(f"YouTube Video: [{video.title}]({video.watch_url})")            
+        st.video(video.watch_url)
+        st.write("Disclaimer: This video is searched based on the term you entered. The accuracy of the search results may vary.")
+    else:
+        st.write("No music pieces found on YouTube for this term.")

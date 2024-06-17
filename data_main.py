@@ -60,10 +60,12 @@ if st.session_state.search_term:
             {"$set": {"Search Count": search_count}}
         )
         st.write(f"This term has been searched {search_count} times.")
-        youtube_search(term['term'])
+        youtube_search(item["Term"])
 elif not st.session_state.search_term:
     st.write("No results found.")
-
+    
+with st.expander("Quick Quiz!"):
+    term_quiz()
 
     
 

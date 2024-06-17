@@ -1,7 +1,7 @@
 import streamlit as st
 import pymongo
 from st_keyup import st_keyup
-from natural_lang_search import natural_search_main
+from natural_lang_search import natural_search_main,youtube_search
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from dictionary_quiz import term_quiz
@@ -60,11 +60,12 @@ if st.session_state.search_term:
             {"$set": {"Search Count": search_count}}
         )
         st.write(f"This term has been searched {search_count} times.")
-
+        youtube_search(term['term'])
 elif not st.session_state.search_term:
     st.write("No results found.")
-
-with st.expander("Random quick quiz!"):
+if 'question_list' not in st.session_state:
+    st.session_state['question_list'] = []
+with st.expander("Random quick quiz!",expanded=st.session_state['question_list']):
     term_quiz()
     
 

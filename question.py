@@ -18,12 +18,11 @@ def get_question(grade_list):
     for item in data:
         if item["Tag"] == category:
             category_list.append(item["Meaning"])
-    option_list=[]
+    option_list=[meaning]
     while len(option_list) < 4:
         random_option = random.choice(category_list)
-        if random_option != meaning:
+        if random_option not in option_list:
             option_list.append(random_option)
-    option_list.append(meaning)
     random.shuffle(option_list)
     return pick_ques,meaning,option_list
 

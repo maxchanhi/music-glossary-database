@@ -63,10 +63,8 @@ if st.session_state.search_term:
         youtube_search(term['term'])
 elif not st.session_state.search_term:
     st.write("No results found.")
-if 'question_list' not in st.session_state:
-    st.session_state['question_list'] = []
-with st.expander("Random quick quiz!",expanded=st.session_state['question_list']):
-    term_quiz()
+
+
     
 
 

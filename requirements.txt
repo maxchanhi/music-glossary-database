@@ -6,3 +6,4 @@ langchain
 langchain_mistralai
 st_mongo_connection
 faiss-cpu
+pytube

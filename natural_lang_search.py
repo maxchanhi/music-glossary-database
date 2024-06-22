@@ -75,7 +75,7 @@ def natural_search_main():
 """)
 from pytube import Search
 def youtube_search(query):
-    search_query = query + " music piece"
+    search_query = query + " classical music piece"
     search_results = Search(search_query).results
 
     if len(search_results) > 0:
